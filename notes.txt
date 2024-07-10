@@ -1,0 +1,39 @@
+Coding midi controller notes
+
+komplete_kontrol_base.py
+	create_display_line()
+	create_sysex_element()
+		set_message_parts() - prefix and suffix of a MIDI message. Can be used to indicate SYSEX
+
+
+https://github.com/tttapa/Control-Surface
+- C++ library for building Arduino MIDI controller - supports OLED displays too! Can use SysexElement, PhysicalDisplayElement
+- 
+
+
+
+Ableton remote repo notes
+MidiMapBase
+
+class ControlSurface(Subject, SlotManager)
+
+
+class Subject(with_metaclass(SubjectMeta, Disconnectable)
+
+
+SlotManager
+- register_slot(SubjectSlot args)
+- register_slot_manager
+
+SubjectSlot(subject: Subject, listener: method, event: , kwargs)
+- expects 
+
+register_slot() example:
+        def make_button_slot(name):
+            return self.register_slot(None, getattr(self, '_%s_value' % name), 'value')
+
+DeviceComponent
+- choose device and set_device
+
+Disconnectable, CompoundDisconnectable
+- for graceful disconnect()
